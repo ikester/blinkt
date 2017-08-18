@@ -155,6 +155,12 @@ func (bl *Blinkt) SetPixel(p int, r int, g int, b int) *Blinkt {
 	return bl
 }
 
+// SetPixelHex sets an individual pixel to specified Hex colour. Show must be called to update the LEDs.
+func (bl *Blinkt) SetPixelHex(p int, color string) *Blinkt {
+	r, g, b := Hex2RGB(color)
+	return bl.SetPixel(p, r, g, b)
+}
+
 // SetBrightness sets the brightness of all pixels. Brightness supplied should be between: 0.0 to 1.0
 func (bl *Blinkt) SetBrightness(brightness float64) *Blinkt {
 	brightnessInt := convertBrightnessToInt(brightness)
