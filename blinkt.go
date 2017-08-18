@@ -28,7 +28,6 @@ import (
 	"os"
 	"os/signal"
 	"strconv"
-	"strings"
 	"syscall"
 	"time"
 
@@ -65,8 +64,7 @@ func inRangeFloat(minVal float64, testVal float64, maxVal float64) bool {
 }
 
 // Hex2RGB converts a hexadecimal color string (e.g. #FFCC66) to RGB
-func Hex2RGB(colorHex string) (int, int, int) {
-	color := strings.TrimPrefix(colorHex, "#")
+func Hex2RGB(color string) (int, int, int) {
 	red, _ := strconv.ParseInt(color[:2], 16, 32)
 	green, _ := strconv.ParseInt(color[2:4], 16, 32)
 	blue, _ := strconv.ParseInt(color[4:6], 16, 32)
